@@ -26,11 +26,11 @@ public class Etudiant {
         total++;
     }
 
-    public Etudiant(String cne, String nom, String prénom,
+    public Etudiant(String cne, String nom, String prenom,
                     int numero, String rue, String quartier, String ville, String pays) {
         this.cne = cne;
         this.nom = nom;
-        this.prenom = prénom;
+        this.prenom = prenom;
         this.adress = new Adress(numero, rue, quartier, ville, pays);
         total++;
         //this.notes = copierTableau(notes);
