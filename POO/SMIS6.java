@@ -6,22 +6,25 @@ import java.util.List;
 
 public class SMIS6 {
     private String nomFiliere;
-    private List<Etudiant> etudiants;
+    private List<IEtudiant> etudiants;
 
     public SMIS6() {
 
     }
 
-    public SMIS6(String nomFiliere, List<Etudiant> etudiants) {
+    public SMIS6(String nomFiliere, List<IEtudiant> etudiants) {
         this.etudiants = new ArrayList(etudiants);
         this.nomFiliere = nomFiliere;
 
     }
 
+
     public SMIS6(SMIS6 smis6) {
         this.etudiants = new ArrayList(smis6.etudiants);
         this.nomFiliere = smis6.nomFiliere;
     }
+
+
 
     public String getNomFiliere() {
         return nomFiliere;
@@ -31,11 +34,11 @@ public class SMIS6 {
         this.nomFiliere = nomFiliere;
     }
 
-    public List<Etudiant> getEtudiants() {
+    public List<IEtudiant> getEtudiants() {
         return this.etudiants;
     }
 
-    public void setEtudiants(List<Etudiant> etudiantList) {
+    public void setEtudiants(List<IEtudiant> etudiantList) {
         this.etudiants.clear();
         this.etudiants.addAll(etudiantList);
     }
@@ -45,7 +48,7 @@ public class SMIS6 {
     }
 
     public void afficheListe() {
-        for (Etudiant etudiant : etudiants) {
+        for (IEtudiant etudiant : etudiants) {
             etudiant.afficherCoordonnees();
         }
     }
@@ -54,13 +57,13 @@ public class SMIS6 {
         return this.etudiants.size();
     }
 
-    public void ajouterEtudiant(Etudiant etudiant) {
+    public void ajouterEtudiant(IEtudiant etudiant) {
         this.etudiants.add(etudiant);
     }
 
-    public Etudiant chercherEtudiant(String cne) {
+    public IEtudiant chercherEtudiant(String cne) {
         boolean exist = false;
-        Etudiant item = null;
+        IEtudiant item = null;
         while (!exist && item == null) {
             for (Object obj : etudiants) {
                 Etudiant etudiant = (Etudiant) obj;
@@ -80,22 +83,22 @@ public class SMIS6 {
         this.etudiants.sort(new ComparateurNom());
     }
 
-     public static void main(String[] args){
-        List<Etudiant> etudiantList=new ArrayList<>();
-         Adress add=new Adress(2,"rue1","Quartier1","ville1","Pays1");
-        etudiantList.add(new Etudiant("M12345","steeve","jeorge",add));
-         etudiantList.add(new Etudiant("a12ut945","john","ahmed",add));
-         etudiantList.add(new Etudiant("djn2345","alan","omar",add));
-         etudiantList.add(new Etudiant("M1djd45","gostave","nemo",add));
+     public static void main(String[] args) throws NoteException {
+        List<IEtudiant> etudiantList=new ArrayList<>();
+         etudiantList.add(EtudiantFactory.Instance("M12345", "steeve", "jeorge", 2,"rue1","Quartier1","ville1","Pays1", new float[]{10 , 20, 15}));
+         etudiantList.add(EtudiantFactory.Instance("a12ut945", "john", "ahmed",  3,"rue2","Quartier2","ville2","Pays2",new float[]{15 , 20, 14}));
+         etudiantList.add(EtudiantFactory.Instance("djn2345", "alan", "omar",  4,"rue3","Quartier3","ville3","Pays3",new float[]{19 , 2, 15}));
+         etudiantList.add(EtudiantFactory.Instance("M1djd45", "gostave", "nemo",  5,"rue4","Quartier4","ville4","Pays4",new float[]{12 , 20, 15}));
+
 
          SMIS6 smis6=new SMIS6("computer Science",etudiantList);
-         smis6.ajouterEtudiant(new Etudiant("Emma", "Lee", "98765",add));
+
          smis6.afficheListe();
          smis6.afficherFiliere();
          System.out.println();
-         smis6.ajouterEtudiant(new Etudiant("Emma", "Lee", "98765"));
+         smis6.ajouterEtudiant(new Etudiant("Emma", "Lee", "98765",7,"rue7","Quartier7","ville7","Pays7", new float[]{23 , 67, 15}));
 
-         Etudiant searchedStudent = smis6.chercherEtudiant("a12ut945");
+         IEtudiant searchedStudent = smis6.chercherEtudiant("a12ut945");
          if (searchedStudent != null) {
              System.out.println("Found student with CNE a12ut945:");
              searchedStudent.afficherCoordonnees();
