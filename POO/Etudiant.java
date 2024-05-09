@@ -18,6 +18,12 @@ public class Etudiant {
         this.prenom=prenom;
         total++;
      }
+    public Etudiant(String cne,String nom,String prenom){
+        this.cne=cne;
+        this.nom=nom;
+        this.prenom=prenom;
+        total++;
+    }
     public Etudiant(Etudiant etudiant){
         this.cne=etudiant.cne;
         this.nom=etudiant.nom;
@@ -35,6 +41,9 @@ public class Etudiant {
         total++;
         //this.notes = copierTableau(notes);
     }
+
+
+
     public static int getTotale(){
         return total;
     }
@@ -82,6 +91,7 @@ public class Etudiant {
     public void afficherCoordonnees(){
         System.out.println(toString());
     }
+
 
     public static void main(String[] args){
         Adress add=new Adress(2,"rue1","Quartier1","ville1","Pays1");
