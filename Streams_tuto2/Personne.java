@@ -1,0 +1,38 @@
+package serie4collections.Streams_tuto2;
+
+public class Personne {
+    private String nom;
+    private int age;
+
+    public Personne(){
+
+    }
+
+    public Personne(String nom,int age){
+        this.nom=nom;
+        this.age=age;
+    }
+    public int getAge() {
+        return age;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "age=" + age +
+                ", nom='" + nom + '\'' +
+                '}';
+    }
+}
