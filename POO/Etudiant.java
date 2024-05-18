@@ -121,7 +121,7 @@ public class Etudiant implements IEtudiant {
 
     public static void main(String[] args) throws NoteException {
         Adress add=new Adress(2,"rue1","Quartier1","ville1","Pays1");
-         Etudiant etudiant1=new Etudiant("M12345","steeve","alan",add,new float[]{10,20,18});
+        Etudiant etudiant1=new Etudiant("M12345","steeve","alan",add,new float[]{10,20,18});
         Etudiant etudiant2 =new Etudiant("M145","steeve","alan",add,new float[]{12,16,13});
         Etudiant etudiant3=new Etudiant("M12345","steeve","alan",add,new float[]{14,15,17});
 
